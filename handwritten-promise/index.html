@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='./Promise.js'></script>
+</head>
+
+<body>
+    <script>
+        let p = new Promise((resolve, reject) => {
+            // 异步回调
+            setTimeout(() => {
+                resolve('OK')
+                    // reject('Error')
+                    // throw 'Error'
+            }, 1000);
+        });
+        // console.log(p);
+
+        const res = p.then(value => {
+            console.log(value);
+            return 'Muggle'
+                // return new Promise((resolve, reject) => {
+                //     resolve('Wizar')
+                // })
+                // throw 'Error'
+        }, reason => {
+            console.warn(reason);
+            // throw 'Then Error'
+            // return 'Error'
+
+        })
+        console.log(p, res);
+
+        // p.then(value => {
+        //     alert(value);
+        // }, reason => {
+        //     alert(reason);
+        // })
+
+        // p.then().then(value => {
+        //     console.log(222);
+        //     // throw 'Error'
+        // }).then(value => {
+        //     console.log(333);
+        // }).catch(reason => {
+        //     console.warn(reason);
+        // })
+    </script>
+</body>
+
+</html>
